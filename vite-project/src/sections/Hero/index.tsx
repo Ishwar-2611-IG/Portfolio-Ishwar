@@ -24,7 +24,7 @@ export function Hero({ onNavigate }: Props) {
           <SectionLabel number="01">Full-Stack Developer / India</SectionLabel>
           <h1 id="hero-title">
             Hey, I'm<br />
-            Ishwar <em>Gosavi</em>
+           <em> Ishwar  Gosavi</em>
           </h1>
           <p className="hero-kicker">
             <em>I build fast, accessible and<br />beautiful web experiences.</em>

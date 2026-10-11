@@ -20,9 +20,20 @@ export function About({ onNavigate }: Props) {
           simple, elegant solutions, and enjoy collaborating on products people love.
         </p>
         <ArrowLink href="#capabilities">My skills</ArrowLink>
+        <div className="about-note">
+          <i aria-hidden="true" />
+          <p>
+            Currently open to<br />
+            <em>new opportunities.</em> Let's build<br />
+            something great together.
+          </p>
+          <button type="button" onClick={() => onNavigate("contact")}>
+            Get in Touch <Arrow />
+          </button>
+        </div>
       </div>
 
-      {/* ── Right: principles list ── */}
+      {/* ── Right: principles list and architecture photo ── */}
       <div className="about-details">
         <ol className="principles">
           {principles.map((principle, i) => (
@@ -32,32 +43,17 @@ export function About({ onNavigate }: Props) {
             </li>
           ))}
         </ol>
-      </div>
-
-      {/* ── Bottom-left: availability note ── */}
-      <div className="about-note">
-        <i aria-hidden="true" />
-        <p>
-          Currently open to<br />
-          <em>new opportunities.</em> Let's build<br />
-          something great together.
-        </p>
-        <button type="button" onClick={() => onNavigate("contact")}>
-          Get in Touch <Arrow />
-        </button>
-      </div>
-
-      {/* ── Bottom-right: architecture photo ── */}
-      <div className="architecture">
-        <img
-          src="https://images.unsplash.com/photo-1565626424178-c699f6601afd?auto=format&fit=crop&w=1100&q=80"
-          alt="Geometric concrete architecture"
-          width={1100}
-          height={1400}
-          loading="lazy"
-          decoding="async"
-        />
-        <i aria-hidden="true" />
+        <div className="architecture">
+          <img
+            src="https://images.unsplash.com/photo-1565626424178-c699f6601afd?auto=format&fit=crop&w=1100&q=80"
+            alt="Geometric concrete architecture"
+            width={1100}
+            height={1400}
+            loading="lazy"
+            decoding="async"
+          />
+          <i aria-hidden="true" />
+        </div>
       </div>
     </section>
   );

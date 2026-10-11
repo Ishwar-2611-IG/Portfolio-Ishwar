@@ -20,9 +20,8 @@ export const contact = {
 } as const;
 
 export const socials = [
-  { label: "LinkedIn", href: "#" },
-  { label: "GitHub",   href: "#" },
-  { label: "Twitter",  href: "#" },
+  { label: "GitHub",   href: "https://github.com/Ishwar-2611-IG" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/ishwar-gosavi-14383028b/" },
 ] as const;
 
 export const principles = [
