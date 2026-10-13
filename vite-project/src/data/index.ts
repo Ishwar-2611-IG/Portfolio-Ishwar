@@ -1,8 +1,8 @@
 export const sections = [
   { id: "home",         number: "01", label: "Home"       },
   { id: "about",        number: "02", label: "About"      },
-  { id: "capabilities", number: "03", label: "Skills"     },
-  { id: "work",         number: "04", label: "Works"      },
+  { id: "work",         number: "03", label: "Works"      },
+  { id: "capabilities", number: "04", label: "Skills"     },
   { id: "learning",     number: "05", label: "Learning"   },
   { id: "experience",   number: "06", label: "Experience" },
   { id: "contact",      number: "07", label: "Contact"    },

@@ -200,22 +200,21 @@ h2 em { color: var(--blue); }
 @media (prefers-reduced-motion: reduce) { .skill-card { animation: none; } }
 
 /* ============ Currently learning ============ */
-.learning { background: var(--ink); color: var(--paper); }
-.learning .section-label { margin-bottom: 6px; color: color-mix(in srgb, var(--paper) 72%, var(--tan)); }
-.learning-active-label { margin-bottom: 14px; color: var(--tan); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; }
-.learning h2 em { color: var(--tan); }
-.learning .heading-note { color: color-mix(in srgb, var(--paper) 78%, var(--muted)); }
+.learning { background: var(--paper); color: var(--ink); }
+.learning .section-label { margin-bottom: 6px; color: var(--muted); }
+.learning-active-label { margin-bottom: 14px; color: var(--blue); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; }
+.learning h2 em { color: var(--blue); }
+.learning .heading-note { color: var(--muted); }
 .learning-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-.learning-card { min-width: 0; padding: clamp(20px, 2.2vw, 30px); border: 1px solid color-mix(in srgb, var(--paper) 18%, transparent); background: color-mix(in srgb, var(--ink) 90%, var(--blue)); transition: border-color 0.22s ease, background 0.22s ease, transform 0.22s ease; animation: learning-reveal 0.5s both var(--ease); }
-.learning-card:nth-child(2), .learning-card:nth-child(3) { background: color-mix(in srgb, var(--ink) 92%, var(--tan)); }
+.learning-card { min-width: 0; padding: clamp(20px, 2.2vw, 30px); border: 1px solid var(--line); background: color-mix(in srgb, var(--paper) 88%, white); transition: border-color 0.22s ease, background 0.22s ease, transform 0.22s ease; animation: learning-reveal 0.5s both var(--ease); }
 .learning-card:hover { border-color: var(--tan); transform: translateY(-2px); }
 .learning-card-meta { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 16px; margin-bottom: 18px; }
-.learning-card-number { color: var(--tan); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; }
-.learning-card-label { color: color-mix(in srgb, var(--paper) 66%, var(--tan)); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-align: right; }
-.learning-card h3 { margin: 0; color: var(--paper); font-family: var(--serif); font-size: clamp(24px, 2.25vw, 32px); font-weight: 400; line-height: 1.1; overflow-wrap: anywhere; }
-.learning-card-description { max-width: 58ch; margin-top: 10px; color: color-mix(in srgb, var(--paper) 78%, var(--muted)); font-size: 14px; line-height: 1.65; }
+.learning-card-number { color: var(--blue); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; }
+.learning-card-label { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-align: right; }
+.learning-card h3 { margin: 0; color: var(--ink); font-family: var(--serif); font-size: clamp(24px, 2.25vw, 32px); font-weight: 400; line-height: 1.1; overflow-wrap: anywhere; }
+.learning-card-description { max-width: 58ch; margin-top: 10px; color: var(--muted); font-size: 14px; line-height: 1.65; }
 .learning-topics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 20px 0 0; padding: 0; list-style: none; }
-.learning-topics li { min-width: 0; padding: 9px 10px; border-left: 2px solid color-mix(in srgb, var(--tan) 76%, var(--blue)); background: color-mix(in srgb, var(--paper) 7%, transparent); color: var(--paper); font-size: 12px; line-height: 1.4; overflow-wrap: anywhere; }
+.learning-topics li { min-width: 0; padding: 9px 10px; border-left: 2px solid var(--tan); background: color-mix(in srgb, var(--tan) 9%, var(--paper)); color: var(--ink); font-size: 12px; line-height: 1.4; overflow-wrap: anywhere; }
 @keyframes learning-reveal { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 760px) { .learning-grid { grid-template-columns: 1fr; } }
 @media (max-width: 520px) { .learning-topics { grid-template-columns: 1fr; } .learning-card-meta { margin-bottom: 14px; } }

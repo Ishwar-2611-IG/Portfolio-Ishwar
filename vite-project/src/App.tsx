@@ -36,8 +36,8 @@ export default function App() {
       <main id="main">
         <Hero       onNavigate={go} />
         <About      onNavigate={go} />
-        <Skills />
         <Work />
+        <Skills />
         <CurrentlyLearning />
         <Experience />
         <Contact />

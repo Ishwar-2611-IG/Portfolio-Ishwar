@@ -7,7 +7,7 @@ export function Skills() {
     <section className="section capabilities" id="capabilities" aria-labelledby="skills-title">
       <div className="section-heading split-heading">
         <div>
-          <SectionLabel number="03">Capabilities</SectionLabel>
+          <SectionLabel number="04">Capabilities</SectionLabel>
           <h2 id="skills-title">
             Tools &amp;<br />Technologies
           </h2>

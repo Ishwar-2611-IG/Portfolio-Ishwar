@@ -23,8 +23,7 @@ export function Hero({ onNavigate }: Props) {
         <div className="hero-copy">
           <SectionLabel number="01">Full-Stack Developer / India</SectionLabel>
           <h1 id="hero-title">
-            Hey, I'm<br />
-           <em> Ishwar  Gosavi</em>
+            Hey, I'm<br /><em>Ishwar Gosavi</em>
           </h1>
           <p className="hero-kicker">
             <em>I build fast, accessible and<br />beautiful web experiences.</em>

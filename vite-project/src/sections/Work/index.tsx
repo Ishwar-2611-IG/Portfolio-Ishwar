@@ -7,7 +7,7 @@ export function Work() {
     <section className="work section" id="work" aria-labelledby="work-title">
       <div className="section-heading">
         <div>
-          <SectionLabel number="04">Selected Work</SectionLabel>
+          <SectionLabel number="03">Selected Work</SectionLabel>
           <h2 id="work-title">
             Featured<br /><em>projects.</em>
           </h2>
