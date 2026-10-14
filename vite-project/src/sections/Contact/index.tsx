@@ -2,6 +2,7 @@ import { Arrow, SectionLabel } from "../../components/ui";
 import { contact, socials } from "../../data";
 import { motion } from "motion/react";
 import { fadeLeft, fadeRight, VIEWPORT } from "../../utils/motion";
+import ContactModal from "../../components/ContactModal";
 import { ContactArt } from "./ContactArt";
 import { Footer } from "./Footer";
 
@@ -67,9 +68,7 @@ export function Contact() {
               );
             })}
           </nav>
-          <a className="solid-cta" href={`mailto:${contact.email}`}>
-            Send Message <Arrow />
-          </a>
+          <ContactModal trigger={<>Send Message <Arrow /></>} />
         </motion.div>
       </div>
 

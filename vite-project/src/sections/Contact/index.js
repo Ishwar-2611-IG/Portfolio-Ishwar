@@ -1,8 +1,9 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 import { Arrow, SectionLabel } from "../../components/ui";
 import { contact, socials } from "../../data";
 import { motion } from "motion/react";
 import { fadeLeft, fadeRight, VIEWPORT } from "../../utils/motion";
+import ContactModal from "../../components/ContactModal";
 import { ContactArt } from "./ContactArt";
 import { Footer } from "./Footer";
 function ContactIcon({ name }) {
@@ -22,5 +23,5 @@ function SocialIcon({ name }) {
 export function Contact() {
     return (_jsxs("section", { className: "section contact", id: "contact", "aria-labelledby": "contact-title", children: [_jsxs("div", { className: "contact-main", children: [_jsxs(motion.div, { variants: fadeLeft, initial: "hidden", whileInView: "show", viewport: VIEWPORT, children: [_jsx(SectionLabel, { number: "07", children: "Contact" }), _jsxs("h2", { id: "contact-title", children: ["Let's build  ", _jsx("br", {}), "something ", _jsx("br", {}), _jsx("em", { children: "useful together." })] })] }), _jsxs(motion.div, { className: "contact-details", variants: fadeRight, initial: "hidden", whileInView: "show", viewport: VIEWPORT, children: [_jsxs("p", { children: ["Have a project in mind or just want to say hi? ", _jsx("br", {}), "I'd love to hear from you."] }), _jsxs("a", { href: `mailto:${contact.email}`, children: [_jsx(ContactIcon, { name: "email" }), _jsx("span", { className: "contact-text", children: contact.email })] }), _jsxs("a", { href: `tel:${contact.phone}`, children: [_jsx(ContactIcon, { name: "phone" }), _jsx("span", { className: "contact-text", children: contact.phoneLabel })] }), _jsxs("span", { className: "contact-location", children: [_jsx(ContactIcon, { name: "location" }), _jsx("span", { children: contact.location })] }), _jsx("nav", { className: "contact-socials", "aria-label": "Social profiles", children: socials.map(({ label, href }) => {
                                     return (_jsx("a", { href: href, target: "_blank", rel: "noopener noreferrer", "aria-label": label, title: label, children: _jsx(SocialIcon, { name: label }) }, label));
-                                }) }), _jsxs("a", { className: "solid-cta", href: `mailto:${contact.email}`, children: ["Send Message ", _jsx(Arrow, {})] })] })] }), _jsx(ContactArt, {}), _jsx(Footer, {})] }));
+                                }) }), _jsx(ContactModal, { trigger: _jsxs(_Fragment, { children: ["Send Message ", _jsx(Arrow, {})] }) })] })] }), _jsx(ContactArt, {}), _jsx(Footer, {})] }));
 }
