@@ -1,5 +1,7 @@
 import { Arrow, ArrowLink, SectionLabel } from "../../components/ui";
 import { principles } from "../../data";
+import { motion } from "motion/react";
+import { fadeLeft, fadeRight, VIEWPORT } from "../../utils/motion";
 
 interface Props {
   onNavigate: (id: string) => void;
@@ -9,7 +11,7 @@ export function About({ onNavigate }: Props) {
   return (
     <section className="about section" id="about" aria-labelledby="about-title">
       {/* ── Left: copy ── */}
-      <div className="about-copy">
+      <motion.div className="about-copy" variants={fadeLeft} initial="hidden" whileInView="show" viewport={VIEWPORT}>
         <SectionLabel number="02">About</SectionLabel>
         <h2 id="about-title">
           Design with<br /><em>intention.</em>
@@ -31,10 +33,10 @@ export function About({ onNavigate }: Props) {
             Get in Touch <Arrow />
           </button>
         </div>
-      </div>
+      </motion.div>
 
       {/* ── Right: principles list and architecture photo ── */}
-      <div className="about-details">
+      <motion.div className="about-details" variants={fadeRight} initial="hidden" whileInView="show" viewport={VIEWPORT}>
         <ol className="principles">
           {principles.map((principle, i) => (
             <li key={principle}>
@@ -54,7 +56,7 @@ export function About({ onNavigate }: Props) {
           />
           <i aria-hidden="true" />
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

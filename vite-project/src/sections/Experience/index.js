@@ -1,8 +1,10 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import { useState } from "react";
+import { motion } from "motion/react";
 import { Accordion } from "@/components/ui/accordion";
 import { SectionLabel } from "../../components/ui";
 import { experiences } from "../../data";
+import { VIEWPORT, fadeUp, staggerContainer } from "../../utils/motion";
 import { TimelineItem } from "./TimelineItem";
 function experienceValue(item) {
     return `${item.company}-${item.date}`;
@@ -29,8 +31,8 @@ function getInitialExperienceValue(items) {
 }
 export function Experience() {
     const [activeValue, setActiveValue] = useState(() => experiences.length ? getInitialExperienceValue(experiences) : "");
-    return (_jsxs("section", { className: "section experience", id: "experience", "aria-labelledby": "exp-title", children: [_jsxs("div", { className: "section-heading split-heading", children: [_jsxs("div", { children: [_jsx(SectionLabel, { number: "06", children: "Experience" }), _jsxs("h2", { id: "exp-title", children: ["Where I've", _jsx("br", {}), "Worked"] })] }), _jsx("p", { className: "heading-note", children: "My professional journey so far." })] }), experiences.length > 0 && (_jsx(Accordion, { type: "single", collapsible: true, value: activeValue, onValueChange: setActiveValue, className: "timeline experience-accordion", children: experiences.map((item, index) => {
-                    const value = experienceValue(item);
-                    return (_jsx(TimelineItem, { item: item, value: value, index: index, onHover: () => setActiveValue(value) }, value));
-                }) }))] }));
+    return (_jsxs("section", { className: "section experience", id: "experience", "aria-labelledby": "exp-title", children: [_jsxs(motion.div, { className: "section-heading split-heading", variants: fadeUp, initial: "hidden", whileInView: "show", viewport: VIEWPORT, children: [_jsxs("div", { children: [_jsx(SectionLabel, { number: "06", children: "Experience" }), _jsxs("h2", { id: "exp-title", children: ["Where I've", _jsx("br", {}), "Worked"] })] }), _jsx("p", { className: "heading-note", children: "My professional journey so far." })] }), experiences.length > 0 && (_jsx(motion.div, { variants: staggerContainer, initial: "hidden", whileInView: "show", viewport: VIEWPORT, children: _jsx(Accordion, { type: "single", collapsible: true, value: activeValue, onValueChange: setActiveValue, className: "timeline experience-accordion", children: experiences.map((item, index) => {
+                        const value = experienceValue(item);
+                        return (_jsx(TimelineItem, { item: item, value: value, index: index, onHover: () => setActiveValue(value) }, value));
+                    }) }) }))] }));
 }

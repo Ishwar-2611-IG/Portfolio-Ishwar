@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { motion } from "motion/react";
 import { Accordion } from "@/components/ui/accordion";
 import { SectionLabel } from "../../components/ui";
 import { experiences, type Experience } from "../../data";
+import { VIEWPORT, fadeUp, staggerContainer } from "../../utils/motion";
 import { TimelineItem } from "./TimelineItem";
 
 function experienceValue(item: Experience): string {
@@ -14,18 +16,22 @@ function experienceStartValue(date: string): number | undefined {
     const month = new Date(`${monthYear[1]} 1, ${monthYear[2]}`).getMonth();
     if (!Number.isNaN(month)) return Number(monthYear[2]) * 12 + month;
   }
-
   const year = date.match(/\b(19|20)\d{2}\b/);
   return year ? Number(year[0]) * 12 : undefined;
 }
 
 function getInitialExperienceValue(items: Experience[]): string {
-  const current = items.find((item) => /\b(present|current|ongoing)\b/i.test(item.date));
+  const current = items.find((item) =>
+    /\b(present|current|ongoing)\b/i.test(item.date),
+  );
   if (current) return experienceValue(current);
 
   const datedItems = items
     .map((item) => ({ item, start: experienceStartValue(item.date) }))
-    .filter((entry): entry is { item: Experience; start: number } => entry.start !== undefined)
+    .filter(
+      (entry): entry is { item: Experience; start: number } =>
+        entry.start !== undefined,
+    )
     .sort((a, b) => b.start - a.start);
 
   return experienceValue(datedItems[0]?.item ?? items[0]!);
@@ -38,7 +44,14 @@ export function Experience() {
 
   return (
     <section className="section experience" id="experience" aria-labelledby="exp-title">
-      <div className="section-heading split-heading">
+      {/* Heading */}
+      <motion.div
+        className="section-heading split-heading"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={VIEWPORT}
+      >
         <div>
           <SectionLabel number="06">Experience</SectionLabel>
           <h2 id="exp-title">
@@ -46,29 +59,37 @@ export function Experience() {
           </h2>
         </div>
         <p className="heading-note">My professional journey so far.</p>
-      </div>
+      </motion.div>
 
+      {/* Accordion — children stagger via TimelineItem's own motion.div */}
       {experiences.length > 0 && (
-        <Accordion
-          type="single"
-          collapsible
-          value={activeValue}
-          onValueChange={setActiveValue}
-          className="timeline experience-accordion"
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={VIEWPORT}
         >
-          {experiences.map((item, index) => {
-            const value = experienceValue(item);
-            return (
-              <TimelineItem
-                key={value}
-                item={item}
-                value={value}
-                index={index}
-                onHover={() => setActiveValue(value)}
-              />
-            );
-          })}
-        </Accordion>
+          <Accordion
+            type="single"
+            collapsible
+            value={activeValue}
+            onValueChange={setActiveValue}
+            className="timeline experience-accordion"
+          >
+            {experiences.map((item, index) => {
+              const value = experienceValue(item);
+              return (
+                <TimelineItem
+                  key={value}
+                  item={item}
+                  value={value}
+                  index={index}
+                  onHover={() => setActiveValue(value)}
+                />
+              );
+            })}
+          </Accordion>
+        </motion.div>
       )}
     </section>
   );

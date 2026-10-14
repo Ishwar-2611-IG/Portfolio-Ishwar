@@ -1,5 +1,7 @@
 import { ArrowLink } from "../../components/ui";
 import type { Project } from "../../data";
+import { motion } from "motion/react";
+import { fadeUp } from "../../utils/motion";
 
 interface Props {
   project: Project;
@@ -19,7 +21,7 @@ export function ProjectCard({ project, index, total }: Props) {
   const label = `${String(index + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
 
   return (
-    <article className={cls}>
+    <motion.article className={cls} variants={fadeUp}>
       {project.image && (
         <>
           <img src={project.image} alt="" loading="lazy" decoding="async" />
@@ -38,6 +40,6 @@ export function ProjectCard({ project, index, total }: Props) {
           </ArrowLink>
         )}
       </div>
-    </article>
+    </motion.article>
   );
 }

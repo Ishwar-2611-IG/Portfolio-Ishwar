@@ -1,6 +1,8 @@
 import { Arrow, SectionLabel } from "../../components/ui";
 import { contact } from "../../data";
 import imageIshwar from "../../imports/ishwaaar.png";
+import { motion } from "motion/react";
+import { drawLine, fadeUp, heroImage, heroSub, heroTitle, staggerContainer } from "../../utils/motion";
 
 interface Props {
   onNavigate: (id: string) => void;
@@ -20,24 +22,24 @@ export function Hero({ onNavigate }: Props) {
       </div>
 
       <div className="hero-grid">
-        <div className="hero-copy">
+        <motion.div className="hero-copy" variants={staggerContainer} initial="hidden" animate="show">
           <SectionLabel number="01">Full-Stack Developer / India</SectionLabel>
-          <h1 id="hero-title">
+          <motion.h1 id="hero-title" variants={heroTitle}>
             Hey, I'm<br /><em>Ishwar Gosavi</em>
-          </h1>
-          <p className="hero-kicker">
+          </motion.h1>
+          <motion.p className="hero-kicker" variants={heroSub}>
             <em>I build fast, accessible and<br />beautiful web experiences.</em>
-          </p>
-          <p className="body-copy">
+          </motion.p>
+          <motion.p className="body-copy" variants={fadeUp}>
             I turn ideas into clean, scalable interfaces. I care about performance,
             accessibility and systems that make a real difference.
-          </p>
-          <button type="button" className="outline-cta" onClick={() => onNavigate("work")}>
+          </motion.p>
+          <motion.button type="button" className="outline-cta" onClick={() => onNavigate("work")} variants={fadeUp}>
             <i aria-hidden="true" /> View My Work <Arrow />
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
 
-        <figure className="portrait-wrap">
+        <motion.figure className="portrait-wrap" variants={heroImage} initial="hidden" animate="show">
           <span className="tan-block" aria-hidden="true" />
           <img
             src={imageIshwar}
@@ -48,10 +50,10 @@ export function Hero({ onNavigate }: Props) {
           />
           <figcaption className="image-caption">
             <span>Based in India</span>
-            <i aria-hidden="true" />
+            <motion.i aria-hidden="true" variants={drawLine} initial="hidden" animate="show" />
           </figcaption>
           <span className="coordinates">{contact.coords}</span>
-        </figure>
+        </motion.figure>
       </div>
 
       <div className="hero-foot">

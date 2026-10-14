@@ -1,5 +1,7 @@
 import { Arrow, SectionLabel } from "../../components/ui";
 import { contact, socials } from "../../data";
+import { motion } from "motion/react";
+import { fadeLeft, fadeRight, VIEWPORT } from "../../utils/motion";
 import { ContactArt } from "./ContactArt";
 import { Footer } from "./Footer";
 
@@ -35,14 +37,14 @@ export function Contact() {
   return (
     <section className="section contact" id="contact" aria-labelledby="contact-title">
       <div className="contact-main">
-        <div>
+        <motion.div variants={fadeLeft} initial="hidden" whileInView="show" viewport={VIEWPORT}>
           <SectionLabel number="07">Contact</SectionLabel>
           <h2 id="contact-title">
             Let's build  <br />something <br /><em>useful together.</em>
           </h2>
-        </div>
+        </motion.div>
 
-        <div className="contact-details">
+        <motion.div className="contact-details" variants={fadeRight} initial="hidden" whileInView="show" viewport={VIEWPORT}>
           <p>Have a project in mind or just want to say hi? <br />I'd love to hear from you.</p>
           <a href={`mailto:${contact.email}`}>
             <ContactIcon name="email" />
@@ -68,7 +70,7 @@ export function Contact() {
           <a className="solid-cta" href={`mailto:${contact.email}`}>
             Send Message <Arrow />
           </a>
-        </div>
+        </motion.div>
       </div>
 
       <ContactArt />

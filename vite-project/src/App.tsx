@@ -1,4 +1,5 @@
 import { useCallback, useState } from "react";
+import { MotionConfig } from "motion/react";
 
 import { Sidebar, MobileHeader }   from "./components/layout";
 import { Hero }                     from "./sections/Hero";
@@ -24,24 +25,26 @@ export default function App() {
   const toggleMenu = useCallback(() => setMenuOpen((open) => !open), []);
 
   return (
-    <div className="site-shell">
-      <a className="skip-link" href="#main">Skip to content</a>
-      <Sidebar active={active} progress={progress} onNavigate={go} />
-      <MobileHeader
-        progress={progress}
-        menuOpen={menuOpen}
-        onToggleMenu={toggleMenu}
-        onNavigate={go}
-      />
-      <main id="main">
-        <Hero       onNavigate={go} />
-        <About      onNavigate={go} />
-        <Work />
-        <Skills />
-        <CurrentlyLearning />
-        <Experience />
-        <Contact />
-      </main>
-    </div>
+    <MotionConfig reducedMotion="user">
+      <div className="site-shell">
+        <a className="skip-link" href="#main">Skip to content</a>
+        <Sidebar active={active} progress={progress} onNavigate={go} />
+        <MobileHeader
+          progress={progress}
+          menuOpen={menuOpen}
+          onToggleMenu={toggleMenu}
+          onNavigate={go}
+        />
+        <main id="main">
+          <Hero       onNavigate={go} />
+          <About      onNavigate={go} />
+          <Work />
+          <Skills />
+          <CurrentlyLearning />
+          <Experience />
+          <Contact />
+        </main>
+      </div>
+    </MotionConfig>
   );
 }

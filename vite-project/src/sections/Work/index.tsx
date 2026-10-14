@@ -1,11 +1,13 @@
 import { SectionLabel } from "../../components/ui";
 import { projects } from "../../data";
+import { motion } from "motion/react";
+import { fadeUp, staggerContainer, VIEWPORT } from "../../utils/motion";
 import { ProjectCard } from "./ProjectCard";
 
 export function Work() {
   return (
     <section className="work section" id="work" aria-labelledby="work-title">
-      <div className="section-heading">
+      <motion.div className="section-heading" variants={fadeUp} initial="hidden" whileInView="show" viewport={VIEWPORT}>
         <div>
           <SectionLabel number="03">Selected Work</SectionLabel>
           <h2 id="work-title">
@@ -18,13 +20,17 @@ export function Work() {
           </p>
           <span aria-hidden="true">← &nbsp;&nbsp; →</span>
         </div>
-      </div>
+      </motion.div>
 
-      <div
+      <motion.div
         className="project-rail"
         role="region"
         aria-label="Selected projects, scrollable"
         tabIndex={0}
+        variants={staggerContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={VIEWPORT}
       >
         {projects.map((project, i) => (
           <ProjectCard
@@ -34,7 +40,7 @@ export function Work() {
             total={projects.length}
           />
         ))}
-      </div>
+      </motion.div>
 
       <p className="rail-note" aria-hidden="true">Scroll horizontally &nbsp;→</p>
     </section>
